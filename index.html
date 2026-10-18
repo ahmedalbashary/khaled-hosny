@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed & Salma | دعوة زفاف</title>
+<meta name="description" content="دعوة زفاف محمد وسلمي - Wedding Invitation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Baloo+Bhaijaan+2:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="locked">
+
+<div id="title">
+  <img class="t-bg" src="wedding-cover.png" alt="">
+  <img class="t-img" src="wedding-cover.png" alt="We're getting married">
+  <div class="t-ui">
+    <button id="startBtn" class="btn">اضغط للبدء</button>
+    <p class="t-sub"><i class="dot r"></i> PLAYER 1 &nbsp;+&nbsp; PLAYER 2 <i class="dot y"></i></p>
+  </div>
+</div>
+
+<main id="game" hidden>
+  <header class="hud">
+    <div class="pl"><b class="av r">م</b><span>محمد</span></div>
+    <div class="meter" role="progressbar" aria-label="تقدم اللعبة"><i id="meterFill"></i><span id="levelLabel">LOBBY</span></div>
+    <div class="pl"><b class="av y">س</b><span>سلمي</span></div>
+  </header>
+
+  <section class="level lobby" data-label="LOBBY">
+    <p class="small">بسم الله الرحمن الرحيم</p>
+    <p class="lead">يسعدنا دعوتكم لحضور حفل زفاف</p>
+    <h1 class="names outline"><span>محمد</span><em>&amp;</em><span>سلمي</span></h1>
+    <p class="date-pill">السبت | ٥ ديسمبر ٢٠٢٦</p>
+    <p class="quote">"ومن آياته أن خلق لكم من أنفسكم أزواجاً لتسكنوا إليها وجعل بينكم مودة ورحمة"<br><small>— سورة الروم —</small></p>
+    <p class="hint">انزل لأسفل لبدء المرحلة الأولى ↓</p>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 1">
+    <h2 class="banner outline"><small>LEVEL 1</small>قصتنا</h2>
+    <div class="panel cut">
+      <div class="cut-icon" id="cutIcon">✦</div>
+      <h3 id="cutTitle"></h3><p id="cutText"></p>
+      <div class="cut-foot"><span id="cutDots"></span><button class="btn sm" id="cutNext">التالي</button></div>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 2">
+    <h2 class="banner outline"><small>LEVEL 2</small>الوقت المتبقي</h2>
+    <div class="panel">
+      <div class="bar"><i id="timeBar"></i></div>
+      <div class="countdown">
+        <div><span id="days">00</span>أيام</div><div><span id="hours">00</span>ساعات</div>
+        <div><span id="minutes">00</span>دقائق</div><div><span id="seconds">00</span>ثوانٍ</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 3">
+    <h2 class="banner outline"><small>LEVEL 3</small>تفاصيل الحفل</h2>
+    <div class="panel quest"><h3>💍 المهمة ١: الاحتفال</h3>
+      <p>السبت، ٥ ديسمبر ٢٠٢٦ — الساعة ٧:٠٠ مساءً</p>
+      <p>قاعة الاحتفالات الكبرى<br>شارع الزهور، الحي الراقي — المدينة</p>
+      <a class="btn sm" href="https://maps.google.com" target="_blank" rel="noopener">📍 افتح الخريطة</a></div>
+    <div class="panel quest"><h3>🌙 المهمة ٢: حفل العشاء</h3>
+      <p>مباشرة بعد الحفل — الساعة ٩:٠٠ مساءً</p>
+      <p>مطعم المناسبات<br>الطابق الثاني — نفس المكان</p></div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 4">
+    <h2 class="banner outline"><small>LEVEL 4</small>لحظاتنا</h2>
+    <p class="lead">المقتنيات: <b id="gotCount">0</b> / 6 — المس لتكشف كل لحظة</p>
+    <div class="gallery">
+      <button class="slot" data-photo="" aria-label="لحظة ١"></button><button class="slot" data-photo="" aria-label="لحظة ٢"></button>
+      <button class="slot" data-photo="" aria-label="لحظة ٣"></button><button class="slot" data-photo="" aria-label="لحظة ٤"></button>
+      <button class="slot" data-photo="" aria-label="لحظة ٥"></button><button class="slot" data-photo="" aria-label="لحظة ٦"></button>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="FINAL LEVEL">
+    <h2 class="banner outline"><small>FINAL LEVEL</small>الباب يحتاج اثنين</h2>
+    <p class="lead">اضغط مع شريكك على الزرّين معاً لفتح الباب وتأكيد الحضور.<br><span class="desk">على الكمبيوتر: اضغط A و L معاً.</span></p>
+    <div class="gate" id="gate">
+      <form id="rsvpForm" inert>
+        <h3>تأكيد الحضور</h3>
+        <p class="rsvp-text">يرجى تأكيد الحضور قبل ١ أكتوبر ٢٠٢٦</p>
+        <label>الاسم الكامل<input type="text" name="name" required placeholder="اكتب اسمك هنا"></label>
+        <label>البريد الإلكتروني<input type="email" name="email" required placeholder="example@email.com"></label>
+        <label>عدد الحاضرين<select name="count"><option value="1">شخص واحد</option><option value="2">شخصان</option><option value="3" selected>٣ أشخاص</option><option value="4">٤ أشخاص</option><option value="5">٥ أشخاص</option></select></label>
+        <div class="radios"><label><input type="radio" name="attending" value="yes" required> سأحضر بكل سرور</label><label><input type="radio" name="attending" value="no"> أعتذر عن الحضور</label></div>
+        <label>رسالة للعروسين<textarea name="message" rows="3" placeholder="اكتب كلمة حب أو تهنئة..."></textarea></label>
+        <button type="submit" class="btn">إرسال التأكيد</button>
+        <p id="formStatus" class="form-status" role="status"></p>
+      </form>
+      <div class="doors" aria-hidden="true"><i></i><i></i><span class="lock">🔒</span></div>
+    </div>
+    <div class="pads">
+      <button class="pad r" id="pad1" aria-label="اللاعب الأول محمد: اضغط مع الاستمرار"><b>م</b>محمد</button>
+      <button class="pad y" id="pad2" aria-label="اللاعبة الثانية سلمي: اضغط مع الاستمرار"><b>س</b>سلمي</button>
+    </div>
+    <div class="bar sync"><i id="syncBar"></i></div>
+    <button class="link" id="soloBtn">تلعب وحدك؟ افتح الباب بنقرة واحدة</button>
+  </section>
+
+  <footer class="level credits">
+    <p class="outline names sm"><span>محمد</span><em>&amp;</em><span>سلمي</span></p>
+    <p>٠٥ . ١٢ . ٢٠٢٦</p>
+    <p>شكراً لوجودكم في حياتنا</p>
+    <p class="tbc">يتبع... في يوم الزفاف</p>
+  </footer>
+
+  <button id="musicToggle" class="music" aria-label="تشغيل الموسيقى">♪</button>
+  <audio id="bgMusic" loop preload="none"><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"></audio>
+</main>
+<div id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
