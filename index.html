@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed & Salma | Wedding Invitation</title>
+<meta name="description" content="Mohamed & Salma — Wedding Invitation | A Co-op Adventure">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Baloo+Bhaijaan+2:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="locked">
+
+<div id="title">
+  <img class="t-bg" src="wedding-cover.png" alt="">
+  <img class="t-img" src="wedding-cover.png" alt="We're getting married">
+  <div class="t-ui">
+    <button id="startBtn" class="btn">PRESS START</button>
+    <p class="t-sub"><i class="dot r"></i> PLAYER 1 &nbsp;+&nbsp; PLAYER 2 <i class="dot y"></i></p>
+  </div>
+</div>
+
+<main id="game" hidden>
+  <header class="hud">
+    <div class="pl"><b class="av r">M</b><span>Mohamed</span></div>
+    <div class="meter" role="progressbar" aria-label="Game progress"><i id="meterFill"></i><span id="levelLabel">LOBBY</span></div>
+    <div class="pl"><b class="av y">S</b><span>Salma</span></div>
+  </header>
+
+  <section class="level lobby" data-label="LOBBY">
+    <p class="small">⚡ NEW GAME STARTED</p>
+    <p class="lead">You've been selected for the most epic co-op adventure of the year</p>
+    <h1 class="names outline"><span>Mohamed</span><em>&amp;</em><span>Salma</span></h1>
+    <p class="date-pill">Saturday | December 5, 2026</p>
+    <p class="quote">"Two players. One quest. Infinite lives together."<br><small>— The Wedding Chronicles —</small></p>
+    <p class="hint">Scroll down to begin Level 1 ↓</p>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 1">
+    <h2 class="banner outline"><small>LEVEL 1</small>Our Story</h2>
+    <div class="panel cut">
+      <div class="cut-icon" id="cutIcon">✦</div>
+      <h3 id="cutTitle"></h3><p id="cutText"></p>
+      <div class="cut-foot"><span id="cutDots"></span><button class="btn sm" id="cutNext">NEXT</button></div>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 2">
+    <h2 class="banner outline"><small>LEVEL 2</small>Time Remaining</h2>
+    <div class="panel">
+      <div class="bar"><i id="timeBar"></i></div>
+      <div class="countdown">
+        <div><span id="days">00</span>Days</div><div><span id="hours">00</span>Hours</div>
+        <div><span id="minutes">00</span>Mins</div><div><span id="seconds">00</span>Secs</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 3">
+    <h2 class="banner outline"><small>LEVEL 3</small>Event Details</h2>
+    <div class="panel quest"><h3>💍 QUEST 1: The Ceremony</h3>
+      <p>Saturday, December 5, 2026 — 7:00 PM</p>
+      <p>Grand Celebration Hall<br>Flowers Street, Uptown District — The City</p>
+      <a class="btn sm" href="https://maps.google.com" target="_blank" rel="noopener">📍 Open Map</a></div>
+    <div class="panel quest"><h3>🌙 QUEST 2: The Banquet</h3>
+      <p>Immediately after the ceremony — 9:00 PM</p>
+      <p>The Occasions Restaurant<br>Second Floor — Same Location</p></div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="LEVEL 4">
+    <h2 class="banner outline"><small>LEVEL 4</small>Our Moments</h2>
+    <p class="lead">Collectibles: <b id="gotCount">0</b> / 6 — Tap each slot to unlock a memory</p>
+    <div class="gallery">
+      <button class="slot" data-photo="" aria-label="Moment 1"></button><button class="slot" data-photo="" aria-label="Moment 2"></button>
+      <button class="slot" data-photo="" aria-label="Moment 3"></button><button class="slot" data-photo="" aria-label="Moment 4"></button>
+      <button class="slot" data-photo="" aria-label="Moment 5"></button><button class="slot" data-photo="" aria-label="Moment 6"></button>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+  <section class="level" data-label="FINAL LEVEL">
+    <h2 class="banner outline"><small>FINAL LEVEL</small>This Door Takes Two</h2>
+    <p class="lead">Hold both buttons at the same time to unlock the gate and confirm your RSVP.<br><span class="desk">On desktop: hold A and L together.</span></p>
+    <div class="gate" id="gate">
+      <form id="rsvpForm" inert>
+        <h3>Confirm Your Attendance</h3>
+        <p class="rsvp-text">Please RSVP before October 1, 2026</p>
+        <label>Full Name<input type="text" name="name" required placeholder="Enter your name here"></label>
+        <label>Email Address<input type="email" name="email" required placeholder="example@email.com"></label>
+        <label>Number of Guests<select name="count"><option value="1">Just me</option><option value="2">2 players</option><option value="3" selected>3 players</option><option value="4">4 players</option><option value="5">5 players</option></select></label>
+        <div class="radios"><label><input type="radio" name="attending" value="yes" required> I'll be there! 🎮</label><label><input type="radio" name="attending" value="no"> Can't make it this time</label></div>
+        <label>Message for the Couple<textarea name="message" rows="3" placeholder="Drop a message or a cheer..."></textarea></label>
+        <button type="submit" class="btn">SEND RSVP</button>
+        <p id="formStatus" class="form-status" role="status"></p>
+      </form>
+      <div class="doors" aria-hidden="true"><i></i><i></i><span class="lock">🔒</span></div>
+    </div>
+    <div class="pads">
+      <button class="pad r" id="pad1" aria-label="Player 1 Mohamed: hold to open"><b>M</b>Mohamed</button>
+      <button class="pad y" id="pad2" aria-label="Player 2 Salma: hold to open"><b>S</b>Salma</button>
+    </div>
+    <div class="bar sync"><i id="syncBar"></i></div>
+    <button class="link" id="soloBtn">Playing solo? Open the gate with one tap</button>
+  </section>
+
+  <footer class="level credits">
+    <p class="outline names sm"><span>Mohamed</span><em>&amp;</em><span>Salma</span></p>
+    <p>05 . 12 . 2026</p>
+    <p>Thank you for being part of our story</p>
+    <p class="tbc">To be continued... on the wedding day</p>
+  </footer>
+
+  <button id="musicToggle" class="music" aria-label="Toggle music">♪</button>
+  <audio id="bgMusic" loop preload="none"><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"></audio>
+</main>
+<div id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
